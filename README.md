@@ -137,6 +137,8 @@ Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tangg
 <a href="https://github.com/rennat10/SoalShift_modul1_B03/blob/master/soal4decrypt.sh">
   Full Code
 </a>
+<h4>Jawab</h4>
+
 <h3>No. 5</h3>
 <h4>Soal</h4>
 <p>
@@ -155,11 +157,11 @@ Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tangg
 <a href="https://github.com/rennat10/SoalShift_modul1_B03/blob/master/Crontab">
   Crontab
 </a>
-
+<h4>Jawab</h4>
 <p> (i) "cat /var/log/syslog" Berguna untuk menyimpan record pada syslog</p>
 <p> (ii) "awk ' /[cC][rR][oO][nN]/ && !/[sS][uU][dD][oO]/ {print $0;}'", pada command tersebut, berguna untuk mencari yang mengandung string cron dan tidak mengandung string sudo, dan pencarian tidak bersifat case sensitive. Untuk command "/[cC][rR][oO][nN]/" dan "!/[sS][uU][dD][oO]/" berguna untuk menghilangkan case sensitive, dimana [cC] berarti bahwa huruf dapat c ataupun C, dan begitu seterusnya. Dan {print $0} berguna untuk mengeluarkannya dalam 1 baris</p>
 <p> (iii) "awk 'NF < 13'" Berguna untuk menbatasi untuk jumlah fieldnya kurang dari 13</p>
 <p> (iv) "cat /var/log/syslog | awk ' /[cC][rR][oO][nN]/ && !/[sS][uU][dD][oO]/ {print $0;}' | awk 'NF < 13' >> ~/Sisop/Modul1/output.log" dan file tersebut disimpan dalam ~/modul1/ </p>
 
-<h4>Jawab</h4>
+
 <p></p>
