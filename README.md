@@ -9,7 +9,7 @@ Hint: Base64, Hexdump
   Full Code
 </a>
 <h4>Jawab</h4>
-1. Pertama-tama unzip lah file nature.zip terlebih dahulu
+1. Pertama-tama unzip lah file nature.zip terlebih dahulu <br>
 2. Lalu buatlah file decrypt seperti Source code dibawah ini
 <p>	
 #!/bin/bash
