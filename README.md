@@ -8,7 +8,7 @@ Hint: Base64, Hexdump
 <a href="https://github.com/rennat10/SoalShift_modul1_B03/blob/master/soal1.sh">  
   Full Code
 </a>
-<h4>
+<h4>Jawab</h4>
 1. Pertama-tama unzip lah file nature.zip terlebih dahulu
 2. Lalu buatlah file decrypt seperti Source code dibawah ini
 <p>	
@@ -24,7 +24,6 @@ do
   i=$((i+1))
 done
 </p>
-</h4>
 <h3>No. 2</h3>
 <h4>Soal</h4>
 <p>
