@@ -1,5 +1,28 @@
 # SoalShift_modul1_B03
-
+<h3>No. 1</h3>
+<h4>Soal</h4>
+<p>
+  Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari.
+Hint: Base64, Hexdump
+</p>
+<a href="https://github.com/rennat10/SoalShift_modul1_B03/blob/master/soal1.sh">  
+  Full Code
+</a>
+<h4>
+1. Pertama-tama unzip lah file nature.zip terlebih dahulu
+2. Lalu buatlah file decrypt seperti Source code dibawah ini
+#!/bin/bash
+#sebagai iterator
+i=1 
+#for untuk melakukan decrypt file sebanyak file .jpg dalam folder nature
+for eachfile in ./nature/*.jpg
+do
+  #melakukan decrypt menggunakan base64 dan hexdump 
+  base64 -d $eachfile | xxd -r > $i.jpg 
+  #increment iterator
+  i=$((i+1))
+done
+</h4>
 <h3>No. 2</h3>
 <h4>Soal</h4>
 <p>
@@ -97,7 +120,22 @@ do
 	fi
 done
 ```
-
+<h3>No. 4</h3>
+<h4>Soal</h4>
+<p>
+Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut:
+        a. Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14.
+        b. Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. 
+        c. setelah huruf z akan kembali ke huruf a
+        d. Backup file syslog setiap jam.
+        e. dan buatkan juga bash script untuk dekripsinya.
+</p>
+<a href="https://github.com/rennat10/SoalShift_modul1_B03/blob/master/soal4encrypt.sh">
+  Full Code
+</a>
+<a href="https://github.com/rennat10/SoalShift_modul1_B03/blob/master/soal4decrypt.sh">
+  Full Code
+</a>
 <h3>No. 5</h3>
 <h4>Soal</h4>
 <p>
