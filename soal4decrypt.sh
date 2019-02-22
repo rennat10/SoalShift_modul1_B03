@@ -3,15 +3,17 @@
 hKecil=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
 hBesar=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
 
+#mendapatkan nama file
 echo $1
 jam=`echo $1 | awk -F: '{print $1}'`
-#jam=`echo "$jam" | bc`
-echo "$jam"
+
+#mendapatkan kombinasi awal untuk dekripsi
 kecila=${hKecil[$((26-jam))]}
 kecilb=${hKecil[$((26-(jam-1)))]}
 besara=${hBesar[$((26-jam))]}
 besarb=${hBesar[$((26-(jam-1)))]}
 
+#mendapatkan jam, menit, tanggal, bulan, tahun
 jam=`echo $1 | awk -F: '{print $1}'`
 menit=`echo $1 | awk '{print $1}' | awk -F: '{print $2}'`
 tanggal=`echo $1 | awk '{print $2}' | awk -F- '{print $1}'`
