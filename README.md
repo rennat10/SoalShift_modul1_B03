@@ -11,7 +11,9 @@ Hint: Base64, Hexdump
 <h4>Jawab</h4>
 1. Pertama-tama unzip lah file nature.zip terlebih dahulu <br>
 2. Lalu buatlah file decrypt seperti Source code dibawah ini
-<p>	
+<p>
+	
+```
 #!/bin/bash <br>
 #sebagai iterator <br>
 i=1 <br>
@@ -23,6 +25,8 @@ do <br>
   #increment iterator<br>
   i=$((i+1))<br>
 done<br>
+
+```
 </p>
 <h3>No. 2</h3>
 <h4>Soal</h4>
