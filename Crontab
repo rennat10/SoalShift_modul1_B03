@@ -1,2 +1,9 @@
+#no 1
+14 14 14 2 * /bin/bash /home/zidan/modul1praktikum/soal1.sh
+14 14 * 2 FRI /bin/bash /home/zidan/modul1praktikum/soal1.sh
+
+#no 4
+0 * * * * /bin/bash /home/zidan/modul1praktikum/soal4encrypt.sh
+
 #no 5
 2-30/6 * * * * /bin/bash ~/Downloads/soal5.sh
