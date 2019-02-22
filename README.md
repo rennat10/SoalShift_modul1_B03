@@ -14,17 +14,17 @@ Hint: Base64, Hexdump
 <p>
 	
 ```
-#!/bin/bash <br>
-#sebagai iterator <br>
-i=1 <br>
-#for untuk melakukan decrypt file sebanyak file .jpg dalam folder nature<br>
-for eachfile in ./nature/*.jpg<br>
+#!/bin/bash 
+#sebagai iterator 
+i=1 
+#for untuk melakukan decrypt file sebanyak file .jpg dalam folder nature
+for eachfile in ./nature/*.jpg
 do <br>
-  #melakukan decrypt menggunakan base64 dan hexdump  <br>
-  base64 -d $eachfile | xxd -r > $i.jpg <br>
-  #increment iterator<br>
-  i=$((i+1))<br>
-done<br>
+  #melakukan decrypt menggunakan base64 dan hexdump 
+  base64 -d $eachfile | xxd -r > $i.jpg 
+  #increment iterator
+  i=$((i+1))
+done
 
 ```
 </p>
@@ -142,7 +142,64 @@ Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tangg
   Full Code
 </a>
 <h4>Jawab</h4>
+<p>
+	Untuk Encrypt<br>
+	1. Pertama-tama buatlah 2 matriks yang masing-masing berisi alphabet lowercase dan uppercase <br>
+	2. Kemudian kita perlu mendapatkan menit, jam, tanggal, bulan, dan tahun <br>
+	3. Kemudian kita mengubah kombinasi dengan menggeser index dari matriks tersebut <br>
+	4. Dengan menggeser matriks tersebut maka kita akan mendapatkan alpahbet yang akan menjadi alphabet pembatasnya <br>
+	5. kecila1 sebagai batas awal dan kecilb1 sebagai batas akhir untuk lowercase sedangkan besara1 sebagai batas awal dan besarb1 sebagai batas akhir untuk uppercase <br>
+	6. Kemudian kita backup syslog dengan enkripsi tersebut lalu menamakannya dengan format jam:menit tanggal-bulan-tahun <br>
+	
+```
+#!/bin/bash
 
+hKecil=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+hBesar=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+
+menit=`date "+%X" | awk -F: '{print $2}'`
+jam=`date "+%X" | awk -F: '{print $1}'`
+tanggal=`date | awk '{print $3}'`
+bulan=`date | awk '{print $2}'`
+tahun=`date | awk '{print $6}'`
+
+kecila1=${hKecil[$jam]}
+kecilb1=${hKecil[$((jam-1))]}
+besara1=${hBesar[$jam]}
+besarb1=${hBesar[$((jam-1))]}
+
+cat /var/log/syslog | tr [a-z] ["$kecila1"-za-"$kecilb1"] | tr [A-Z] ["$besara1"-ZA-"$besarb1"] > "$jam:$menit $tanggal-$bulan-$tahun".txt
+```
+	Untuk Decrypt<br>
+	Untuk Encrypt
+	1. Pertama-tama buatlah 2 matriks yang masing-masing berisi alphabet lowercase dan uppercase <br>
+	2. Kemudian kita perlu mendapatkan menit, jam, tanggal, bulan, dan tahun <br>
+	3. Kemudian kita mengubah kombinasi dengan menggeser index dari matriks tersebut <br>
+	4. Dengan menggeser matriks tersebut maka kita akan mendapatkan alpahbet yang akan menjadi alphabet pembatasnya <br>
+	5. kecila sebagai batas awal dan kecilb sebagai batas akhir untuk lowercase sedangkan besara sebagai batas awal dan besarb sebagai batas akhir untuk uppercase <br>
+	6. Kemudian kita mendekripsi file yang telah dienkripsi lalu memberinya nama dengan format jam:menit tanggal-bulan-tahun-decrypted<br>
+```
+#!/bin/bash
+
+hKecil=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+hBesar=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+
+echo $1
+jam=`echo $1 | awk -F: '{print $1}'`
+kecila=${hKecil[$((26-jam))]}
+kecilb=${hKecil[$((26-(jam-1)))]}
+besara=${hBesar[$((26-jam))]}
+besarb=${hBesar[$((26-(jam-1)))]}
+
+jam=`echo $1 | awk -F: '{print $1}'`
+menit=`echo $1 | awk '{print $1}' | awk -F: '{print $2}'`
+tanggal=`echo $1 | awk '{print $2}' | awk -F- '{print $1}'`
+bulan=`echo $1 | awk '{print $2}' | awk -F- '{print $2}'`
+tahun=`echo $1 | awk '{print $2}' | awk -F- '{print $3}' | awk -F. '{print $1}'`
+
+cat "$jam:$menit $tanggal-$bulan-$tahun".txt | tr [a-z] ["$kecila"-za-"$kecilb"] | tr [A-Z] ["$besara"-ZA-"$besarb"] > "$jam:$menit $tanggal-$bulan-$tahun-decrypted".txt
+```
+</p>
 <h3>No. 5</h3>
 <h4>Soal</h4>
 <p>
