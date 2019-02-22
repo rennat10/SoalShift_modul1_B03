@@ -12,17 +12,17 @@ Hint: Base64, Hexdump
 1. Pertama-tama unzip lah file nature.zip terlebih dahulu <br>
 2. Lalu buatlah file decrypt seperti Source code dibawah ini
 <p>	
-#!/bin/bash
-#sebagai iterator
-i=1 
-#for untuk melakukan decrypt file sebanyak file .jpg dalam folder nature
-for eachfile in ./nature/*.jpg
-do
-  #melakukan decrypt menggunakan base64 dan hexdump 
-  base64 -d $eachfile | xxd -r > $i.jpg 
-  #increment iterator
-  i=$((i+1))
-done
+#!/bin/bash <br>
+#sebagai iterator <br>
+i=1 <br>
+#for untuk melakukan decrypt file sebanyak file .jpg dalam folder nature<br>
+for eachfile in ./nature/*.jpg<br>
+do <br>
+  #melakukan decrypt menggunakan base64 dan hexdump  <br>
+  base64 -d $eachfile | xxd -r > $i.jpg <br>
+  #increment iterator<br>
+  i=$((i+1))<br>
+done<br>
 </p>
 <h3>No. 2</h3>
 <h4>Soal</h4>
