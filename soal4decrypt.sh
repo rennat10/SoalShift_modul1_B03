@@ -7,7 +7,7 @@ hBesar=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
 echo $1
 jam=`echo $1 | awk -F: '{print $1}'`
 
-#mendapatkan kombinasi awal untuk dekripsi
+#menggeser indeks ke tempat semula untuk mendapatkan kombinasi awal untuk dekripsi
 kecila=${hKecil[$((26-jam))]}
 kecilb=${hKecil[$((26-(jam-1)))]}
 besara=${hBesar[$((26-jam))]}
