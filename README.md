@@ -169,8 +169,7 @@ besara1=${hBesar[$jam]}
 besarb1=${hBesar[$((jam-1))]}
 
 cat /var/log/syslog | tr [a-z] ["$kecila1"-za-"$kecilb1"] | tr [A-Z] ["$besara1"-ZA-"$besarb1"] > "$jam:$menit $tanggal-$bulan-$tahun".txt
-```
-	Untuk Decrypt<br>
+```	
 	Untuk Encrypt
 	1. Pertama-tama buatlah 2 matriks yang masing-masing berisi alphabet lowercase dan uppercase <br>
 	2. Kemudian kita perlu mendapatkan menit, jam, tanggal, bulan, dan tahun <br>
@@ -178,6 +177,7 @@ cat /var/log/syslog | tr [a-z] ["$kecila1"-za-"$kecilb1"] | tr [A-Z] ["$besara1"
 	4. Dengan menggeser matriks tersebut maka kita akan mendapatkan alpahbet yang akan menjadi alphabet pembatasnya <br>
 	5. kecila sebagai batas awal dan kecilb sebagai batas akhir untuk lowercase sedangkan besara sebagai batas awal dan besarb sebagai batas akhir untuk uppercase <br>
 	6. Kemudian kita mendekripsi file yang telah dienkripsi lalu memberinya nama dengan format jam:menit tanggal-bulan-tahun-decrypted<br>
+
 ```
 #!/bin/bash
 
